@@ -1,12 +1,14 @@
 const express = require('express');
 const coinsRoutes = require('./routes/coinRoutes');
+const cors = require('cors')
 
 const app = express();
 
-// Set up middleware
+// set up middleware
 app.use(express.json());
+app.use(cors())
 
-// Set up routes
+// set up routes
 app.use('/coins', coinsRoutes);
 
 app.listen(4000, () => {
